@@ -74,4 +74,9 @@ export class AppComponent {
 			}
 		});
 	}
+
+  ordenarAleatorio() {
+    this.tareas = this.tareas.sort(() => Math.random() - 0.5);
+}
+
 }
