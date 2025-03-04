@@ -5,6 +5,8 @@
   <!-- Requerimiento 2: Formulario para agregar nueva tarea -->
   <h3>Agregar nueva tarea</h3>
   <button (click)="eliminarTareasSeleccionadas()">Eliminar tareas seleccionadas</button>
+  <button (click)="marcarComoDestacadas()">Marcar como destacadas</button>
+
 
 
   <form (ngSubmit)="agregarTarea()">
@@ -29,7 +31,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let tarea of tareas">
+      <tr *ngFor="let tarea of tareas" [ngClass]="{'destacada': tarea.destacada}">
+
             <td><input type="checkbox" [(ngModel)]="tarea.seleccionada"></td>
             <td>{{ tarea.id }}</td>
             <td>{{ tarea.titulo }}</td>
