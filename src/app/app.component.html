@@ -19,6 +19,7 @@
   <table border="1">
       <thead>
           <tr>
+              <th>Seleccionar</th>
               <th>ID</th>
               <th>Título</th>
               <th>Duración (minutos)</th>
@@ -26,6 +27,7 @@
       </thead>
       <tbody>
           <tr *ngFor="let tarea of tareas">
+            <input type="checkbox" [(ngModel)]="tarea.Seleccionar">
               <td>{{ tarea.id }}</td>
               <td>{{ tarea.titulo }}</td>
               <td>{{ tarea.minutos }}</td>
