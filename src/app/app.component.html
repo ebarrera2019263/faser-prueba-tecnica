@@ -2,6 +2,20 @@
   <h1>Prueba técnica - Estudio Faser</h1>
   <h2>Listado de tareas</h2>
 
+  <!-- Requerimiento 2: Formulario para agregar nueva tarea -->
+  <h3>Agregar nueva tarea</h3>
+  <form (ngSubmit)="agregarTarea()">
+      <label for="titulo">Título:</label>
+      <input type="text" [(ngModel)]="nuevaTarea.titulo" name="titulo" required>
+
+      <label for="minutos">Duración (minutos):</label>
+      <input type="number" [(ngModel)]="nuevaTarea.minutos" name="minutos" required>
+
+      <button type="submit">Agregar</button>
+  </form>
+  <!-- Fin Requerimiento 2 -->
+
+  <!-- Requerimiento 1: Tabla HTML para mostrar tareas -->
   <table border="1">
       <thead>
           <tr>
@@ -18,4 +32,5 @@
           </tr>
       </tbody>
   </table>
+  <!-- Fin Requerimiento 1 -->
 </div>
