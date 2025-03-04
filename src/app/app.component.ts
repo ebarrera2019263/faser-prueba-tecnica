@@ -9,7 +9,9 @@ import { Tarea } from './tarea';
 })
 export class AppComponent {
 	tareas: Tarea[];
-  nuevaTarea: Tarea = new Tarea(0, '', 0);
+  nuevaTarea: Tarea = new Tarea(0, '', 0); // agregamos una variable para poder agregar nuevas tareas a la tabla
+  ordenActual = { columna: '', asc: true }; //agregamos una variable para guardar cuál columna estamos ordenando y en qué dirección
+
 
 
 	constructor(
@@ -56,7 +58,28 @@ export class AppComponent {
     this.tareas = this.tareas.filter(tarea => !tarea.seleccionada);
 }
 
+ordenarPor(columna: string) {
+  if (this.ordenActual.columna === columna) {
+      this.ordenActual.asc = !this.ordenActual.asc;
+  } else {
+      this.ordenActual.columna = columna;
+      this.ordenActual.asc = true;
+  }
+
+  this.tareas.sort((a, b) => {
+      const valorA = a[columna as keyof Tarea];
+      const valorB = b[columna as keyof Tarea];
+
+      if (valorA < valorB) {
+          return this.ordenActual.asc ? -1 : 1;
+      }
+      if (valorA > valorB) {
+          return this.ordenActual.asc ? 1 : -1;
+      }
+      return 0;
+  });
 }
 
+}
 
 
