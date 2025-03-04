@@ -4,6 +4,9 @@
 
   <!-- Requerimiento 2: Formulario para agregar nueva tarea -->
   <h3>Agregar nueva tarea</h3>
+  <button (click)="eliminarTareasSeleccionadas()">Eliminar tareas seleccionadas</button>
+
+
   <form (ngSubmit)="agregarTarea()">
       <label for="titulo">Título:</label>
       <input type="text" [(ngModel)]="nuevaTarea.titulo" name="titulo" required>
@@ -17,22 +20,23 @@
 
   <!-- Requerimiento 1: Tabla HTML para mostrar tareas -->
   <table border="1">
-      <thead>
-          <tr>
-              <th>Seleccionar</th>
-              <th>ID</th>
-              <th>Título</th>
-              <th>Duración (minutos)</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let tarea of tareas">
-            <input type="checkbox" [(ngModel)]="tarea.Seleccionar">
-              <td>{{ tarea.id }}</td>
-              <td>{{ tarea.titulo }}</td>
-              <td>{{ tarea.minutos }}</td>
-          </tr>
-      </tbody>
-  </table>
+    <thead>
+        <tr>
+            <th>Seleccionar</th>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Duración (minutos)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tarea of tareas">
+            <td><input type="checkbox" [(ngModel)]="tarea.seleccionada"></td>
+            <td>{{ tarea.id }}</td>
+            <td>{{ tarea.titulo }}</td>
+            <td>{{ tarea.minutos }}</td>
+        </tr>
+    </tbody>
+</table>
+
   <!-- Fin Requerimiento 1 -->
 </div>

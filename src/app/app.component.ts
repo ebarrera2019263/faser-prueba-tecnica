@@ -33,10 +33,12 @@ export class AppComponent {
     }
 
     const nueva = new Tarea(
-			this.tareas.length + 1,
-			this.nuevaTarea.titulo,
-			this.nuevaTarea.minutos
-		);
+      this.tareas.length + 1,
+      this.nuevaTarea.titulo,
+      this.nuevaTarea.minutos,
+      false  // Seleccionada inicia como false
+  );
+
 
 		// Agregarla al array de tareas
 		this.tareas.push(nueva);
@@ -48,6 +50,12 @@ export class AppComponent {
 		console.log('Tarea agregada:', nueva);
 		console.log('Tareas actualizadas:', this.tareas);
 	}
+
+
+  eliminarTareasSeleccionadas() {
+    this.tareas = this.tareas.filter(tarea => !tarea.seleccionada);
+}
+
 }
 
 

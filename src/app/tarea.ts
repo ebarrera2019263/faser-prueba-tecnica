@@ -3,6 +3,6 @@ export class Tarea {
         public id: number,
         public titulo: string,
         public minutos: number,
-       public seleccionar: boolean = false //propiedad para poder seleccionar
+       public seleccionada: boolean = false //propiedad para poder seleccionar
     ){}
 }
